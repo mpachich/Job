@@ -1,5 +1,10 @@
+variable "kubernetes_ip" {
+  description = "Address of kubernetes cluster"
+  default     = "https://192.168.99.100:8443"
+}
+
 provider "kubernetes" {
-  host = "https://192.168.99.100:8443"
+  host = "${var.kubernetes_ip}"
 
   # client_certificate = "${file("/home/manan/.minikube/client.crt")}"
   # client_key         = "${file("/home/manan/.minikube/client.key")}"

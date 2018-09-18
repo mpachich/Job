@@ -18,9 +18,9 @@ variable "k8s_client_ca_certificate" {
 provider "kubernetes" {
   host = "${var.kubernetes_ip}"
 
-  # client_certificate     = "${base64decode(var.k8s_client_certificate)}"
   client_key             = "${var.k8s_client_key}"
   cluster_ca_certificate = "${var.k8s_client_ca_certificate}"
+  client_certificate     = "${var.k8s_client_certificate}"
 }
 
 resource "kubernetes_pod" "jenkins" {

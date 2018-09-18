@@ -18,7 +18,7 @@ variable "k8s_client_ca_certificate" {
 provider "kubernetes" {
   host = "${var.kubernetes_ip}"
 
-  client_certificate     = "${base64decode(var.k8s_client_certificate)}"
+  # client_certificate     = "${base64decode(var.k8s_client_certificate)}"
   client_key             = "${base64decode(var.k8s_client_key)}"
   cluster_ca_certificate = "${base64decode(var.k8s_client_ca_certificate)}"
 }

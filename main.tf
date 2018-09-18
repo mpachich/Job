@@ -3,13 +3,25 @@ variable "kubernetes_ip" {
   default     = "https://192.168.99.100:8443"
 }
 
+variable "k8s_client_certificate" {
+  description = "Client certificate"
+}
+
+variable "k8s_client_key" {
+  description = "Client key"
+}
+
+variable "k8s_client_ca_certificate" {
+  description = "Client CA certificate"
+}
+
 provider "kubernetes" {
   host = "${var.kubernetes_ip}"
 
-  # client_certificate = "${file("/home/manan/.minikube/client.crt")}"
-  # client_key         = "${file("/home/manan/.minikube/client.key")}"
+  client_certificate = "${var.k8s_client_certificate}"
+  client_key         = "${var.k8s_client_key}"
 
-  # cluster_ca_certificate = "${file("/home/manan/.minikube/ca.crt")}"
+  cluster_ca_certificate = "${var.k8s_client_ca_certificate}"
 }
 
 resource "kubernetes_pod" "jenkins" {

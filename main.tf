@@ -1,6 +1,7 @@
 variable "kubernetes_ip" {
   description = "Address of kubernetes cluster"
-  default     = "https://192.168.99.100:8443"
+
+  # default     = "https://192.168.99.100:8443"
 }
 
 variable "k8s_client_certificate" {
@@ -19,12 +20,18 @@ variable "k8s_config" {
   description = "Config file"
 }
 
+variable "k8s_token" {
+  description = "Token of your service account"
+
+  # default     = "default value"
+}
+
 provider "kubernetes" {
   host = "${var.kubernetes_ip}"
 
   # username               = "admin"
   config_context_cluster = "mycluster.icp"
-  token                  = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiY3E3bW9lZDJqdGNwajZoZjgzbXIiLCJyZWFsbU5hbWUiOiJjdXN0b21SZWFsbSIsInVuaXF1ZVNlY3VyaXR5TmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6Ly9teWNsdXN0ZXIuaWNwOjk0NDMvb2lkYy9lbmRwb2ludC9PUCIsImF1ZCI6IjIxNDQzMjFlZTJiZjViNDdlY2ZlYjk2OGFjYWM0MmQ0IiwiZXhwIjoxNTM3NDIyMjA3LCJpYXQiOjE1Mzc0MjIyMDcsInN1YiI6ImFkbWluIiwidGVhbVJvbGVNYXBwaW5ncyI6W119.FNCXK9iQF3_0DtrSp3PkSSb443vtaEUyAXg133XHX7SyRSmXclwuq8H8txcaQXAt4Sd18_3Vt_IK4p-fHmqNs43zjxU9w_NCLrGPreJwtEg-RcXGD-QEgZIjwSakuuFgOCu5nbsboXe6nrTONj8UlGOicKkRDRW0hBWEYyE1vSEV30UDObZwN6ncZaYF7lhM69usBIQwaJ4b4t51DKHr5eRO8aQwhFWRs9DQ3o8yE6FEkm_kEW7w85ldBcanZGk4_cLXw9dKKwSHp7gW_sV5AEXkE6UPGScwr7t5ljnR1yRaiF8WSln0b4VPJCyzjTxkYX6xr3iJ3vnYq2SdZOmu8A"
+  token                  = "${var.k8s_token}"
 
   # client_key             = "${var.k8s_client_key}"
   # cluster_ca_certificate = "${var.k8s_client_ca_certificate}"

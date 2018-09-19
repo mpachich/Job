@@ -67,7 +67,7 @@ resource "kubernetes_pod" "jenkins" {
     name = "jenkins-example"
 
     labels {
-      App = "jenkins"
+      app = "jenkins"
     }
   }
 

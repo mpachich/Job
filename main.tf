@@ -26,6 +26,10 @@ provider "kubernetes" {
   # cluster_ca_certificate = "${var.k8s_client_ca_certificate}"
   # client_certificate     = "${var.k8s_client_certificate}"
   config_path = "${var.k8s_config}"
+
+  insecure = "true"
+
+  # token=""
 }
 
 resource "kubernetes_pod" "jenkins" {

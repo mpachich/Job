@@ -4,21 +4,21 @@ variable "kubernetes_ip" {
   # default     = "https://192.168.99.100:8443"
 }
 
-variable "k8s_client_certificate" {
-  description = "Client certificate"
-}
+# variable "k8s_client_certificate" {
+#   description = "Client certificate"
+# }
 
-variable "k8s_client_key" {
-  description = "Client key"
-}
+# variable "k8s_client_key" {
+#   description = "Client key"
+# }
 
-variable "k8s_client_ca_certificate" {
-  description = "Client CA certificate"
-}
+# variable "k8s_client_ca_certificate" {
+#   description = "Client CA certificate"
+# }
 
-variable "k8s_config" {
-  description = "Config file"
-}
+# variable "k8s_config" {
+#   description = "Config file"
+# }
 
 variable "k8s_token" {
   description = "Token of your service account"
